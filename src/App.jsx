@@ -8,8 +8,6 @@ function App() {
       <Header />
       <main>
         <Dish
-          name="Tacos"
-          number={1}
           title={"Tacos à l'unité"}
           price={3}
           img={
@@ -17,8 +15,6 @@ function App() {
           }
         />
         <Dish
-          name="Enchiladas"
-          number={2}
           title={"Enchiladas"}
           price={12}
           img={
@@ -26,8 +22,6 @@ function App() {
           }
         />
         <Dish
-          name="Mole poblano"
-          number={3}
           title={"Mole poblano"}
           price={15}
           img={
