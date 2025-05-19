@@ -1,10 +1,18 @@
 export default function Header() {
   return (
     <header>
-      <img src="https://cdn.pixabay.com/photo/2018/03/26/14/18/man-3262834_960_720.png" alt="Logo" />;
-      <ul>
-        <li><a href="/">Page d'accueil</a></li>
-      </ul>
+      <img
+        src="https://cdn.pixabay.com/photo/2018/03/26/14/18/man-3262834_960_720.png"
+        alt="Un mexicain avec un chapeau qui joue de la guitare"
+      />
+      ;
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Page d'accueil</a>
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 }
