@@ -50,8 +50,8 @@ function App() {
 
   return (
     <>
-      <Header cartCount />
-      <Dishes addToCart />
+      <Header />
+      <Dishes />
       <Footer />
     </>
   );
