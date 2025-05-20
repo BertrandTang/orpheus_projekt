@@ -9,7 +9,7 @@ import { useState } from 'react';
 import "./assets/styles/main.scss"
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-function Dishes() {
+function Dishes({ addToCart }) {
   const dishes = [
     { title: "Tacos à l'unité", price: 3, stock: 12, img: "https://cdn.pixabay.com/photo/2016/08/23/08/53/tacos-1613795_960_720.jpg", isNew: true },
     { title: "Enchiladas", price: 12, stock: 0, img: "https://cdn.pixabay.com/photo/2014/01/14/22/13/mexican-245240_960_720.jpg", isNew: false },
@@ -21,9 +21,9 @@ function Dishes() {
     setShowNewOnly(prevState => !prevState);
   };
 
-// showNewOnly = false, donc initialement la page affiche tous les plats car !showNewOnly est true. 
-// Pareil pour l'affichage sur le bouton, on affiche "Nouveauté" car !showNewOnly est true. 
-// Quand on clique, on fait passer !showNewOnly à false (car showNewOnly passe à true).
+  // showNewOnly = false, donc initialement la page affiche tous les plats car !showNewOnly est true. 
+  // Pareil pour l'affichage sur le bouton, on affiche "Nouveauté" car !showNewOnly est true. 
+  // Quand on clique, on fait passer !showNewOnly à false (car showNewOnly passe à true).
   const filteredDishes = dishes.filter(dish => dish.stock > 0 && (!showNewOnly || dish.isNew));
 
   return (
@@ -37,6 +37,7 @@ function Dishes() {
               price={dish.price}
               img={dish.img}
               isNew={dish.isNew}
+              addToCart={addToCart}
             />
           </Col>
         ))}
@@ -46,11 +47,14 @@ function Dishes() {
 }
 
 function App() {
-  
+  const [cartCount, setCartCount] = useState(0);
+  const addToCart = () => {
+    setCartCount(prevCount => prevCount + 1);
+  }
   return (
     <>
-      <Header />
-      <Dishes />
+      <Header cartCount={cartCount} />
+      <Dishes addToCart={addToCart} />
       <Footer />
     </>
   );
