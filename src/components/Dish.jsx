@@ -12,7 +12,7 @@ export default function Dish({ title, price, img, isNew }) {
     };
     return (
         <Card>
-            {isNew ? (<Badge bg="primary">FRESHLY NEW</Badge>) : null}
+            {isNew && <Badge bg="primary">FRESHLY NEW</Badge>}
             <Card.Img src={img} alt={title} />
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
