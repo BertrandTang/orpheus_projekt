@@ -14,13 +14,13 @@ function Dishes() {
     { id: 3, title: "Mole poblano", price: 15, stock: 5, img: "https://cdn.pixabay.com/photo/2021/02/04/03/57/mole-5980185_960_720.jpg", isNew: false },
   ];
 
-  const inStockDishes = dishes.filter(dish => dish.stock > 0);
+  const filteredDishes = dishes.filter(dish => dish.stock > 0);
 
   return (
     <Container as="main">
       <Row>
         <ul>
-          {inStockDishes.map(dish => (
+          {filteredDishes.map(dish => (
             <Col md={4}>
               <li key={dish.id}>
                 <Dish
