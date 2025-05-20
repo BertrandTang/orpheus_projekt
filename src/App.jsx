@@ -18,9 +18,9 @@ function Dishes() {
 
   const [showNewOnly, setShowNewOnly] = useState(false);
   const handleShowNewOnly = () => {
-    setShowNewOnly(!showNewOnly); // Inverse le booléen
+    setShowNewOnly(prevState => !prevState);
   };
-  
+
 // showNewOnly = false, donc initialement la page affiche tous les plats car !showNewOnly est true. 
 // Pareil pour l'affichage sur le bouton, on affiche "Nouveauté" car !showNewOnly est true. 
 // Quand on clique, on fait passer !showNewOnly à false (car showNewOnly passe à true).
@@ -46,6 +46,7 @@ function Dishes() {
 }
 
 function App() {
+  
   return (
     <>
       <Header />
