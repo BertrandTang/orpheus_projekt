@@ -7,43 +7,39 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+function Dishes() {
+  const dishes = [
+    { id: 1, title: "Tacos à l'unité", price: 3, img: "https://cdn.pixabay.com/photo/2016/08/23/08/53/tacos-1613795_960_720.jpg", isNew: true },
+    { id: 2, title: "Enchiladas", price: 12, img: "https://cdn.pixabay.com/photo/2014/01/14/22/13/mexican-245240_960_720.jpg", isNew: false },
+    { id: 3, title: "Mole poblano", price: 15, img: "https://cdn.pixabay.com/photo/2021/02/04/03/57/mole-5980185_960_720.jpg", isNew: false },
+  ];
+  return (
+    <Container as="main">
+      <Row>
+        <ul>
+          {dishes.map(dish => (
+            <Col md={4}>
+              <li key={dish.id}>
+                <Dish
+                  title={dish.title}
+                  price={dish.price}
+                  img={dish.img}
+                  isNew={dish.isNew}
+                />
+              </li>
+            </Col>
+          ))}
+        </ul>
+      </Row>
+    </Container >
+  );
+}
+
 function App() {
   return (
     <>
       <Header />
-      <main>
-        <Container>
-          <Row>
-            <Col md={4}>
-              <Dish
-                title={"Tacos à l'unité"}
-                price={3}
-                img={
-                  "https://cdn.pixabay.com/photo/2016/08/23/08/53/tacos-1613795_960_720.jpg"
-                }
-              />
-            </Col>
-            <Col md={4}>
-              <Dish
-                title={"Enchiladas"}
-                price={12}
-                img={
-                  "https://cdn.pixabay.com/photo/2014/01/14/22/13/mexican-245240_960_720.jpg"
-                }
-              />
-            </Col>
-            <Col md={4}>
-              <Dish
-                title={"Mole poblano"}
-                price={15}
-                img={
-                  "https://cdn.pixabay.com/photo/2021/02/04/03/57/mole-5980185_960_720.jpg"
-                }
-              />
-            </Col>
-          </Row>
-        </Container>
-      </main>
+      <Dishes />
       <Footer />
     </>
   );
