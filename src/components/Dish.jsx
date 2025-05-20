@@ -6,10 +6,7 @@ import "../assets/styles/dish.scss"
 export default function Dish({ title, price, img, isNew }) {
     return (
         <Card>
-            {isNew ? (
-                <Stack direction="horizontal">
-                    <Badge bg="primary">FRESHLY NEW</Badge>
-                </Stack>) : null}
+            {isNew ? (<Badge bg="primary">FRESHLY NEW</Badge>) : null}
             <Card.Img src={img} alt={title} />
             <Card.Body>
                 <Card.Title>{title}</Card.Title>

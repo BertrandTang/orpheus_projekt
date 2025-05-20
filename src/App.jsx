@@ -19,20 +19,16 @@ function Dishes() {
   return (
     <Container as="main">
       <Row>
-        <ul>
           {filteredDishes.map(dish => (
-            <Col md={4}>
-              <li key={dish.id}>
+            <Col md={4} key={dish.id}>
                 <Dish
                   title={dish.title}
                   price={dish.price}
                   img={dish.img}
                   isNew={dish.isNew}
                 />
-              </li>
             </Col>
           ))}
-        </ul>
       </Row>
     </Container >
   );
