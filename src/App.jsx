@@ -5,18 +5,19 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { useState } from 'react';
+import { useState } from "react";
 import "./assets/styles/main.scss"
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-function Dishes({ addToCart }) {
+function Dishes() {
+  const [showNewOnly, setShowNewOnly] = useState(false);
+
   const dishes = [
     { title: "Tacos à l'unité", price: 3, stock: 12, img: "https://cdn.pixabay.com/photo/2016/08/23/08/53/tacos-1613795_960_720.jpg", isNew: true },
     { title: "Enchiladas", price: 12, stock: 0, img: "https://cdn.pixabay.com/photo/2014/01/14/22/13/mexican-245240_960_720.jpg", isNew: false },
     { title: "Mole poblano", price: 15, stock: 5, img: "https://cdn.pixabay.com/photo/2021/02/04/03/57/mole-5980185_960_720.jpg", isNew: false },
   ];
 
-  const [showNewOnly, setShowNewOnly] = useState(false);
   const handleShowNewOnly = () => {
     setShowNewOnly(prevState => !prevState);
   };
@@ -37,7 +38,6 @@ function Dishes({ addToCart }) {
               price={dish.price}
               img={dish.img}
               isNew={dish.isNew}
-              addToCart={addToCart}
             />
           </Col>
         ))}
@@ -47,14 +47,11 @@ function Dishes({ addToCart }) {
 }
 
 function App() {
-  const [cartCount, setCartCount] = useState(0);
-  const addToCart = () => {
-    setCartCount(prevCount => prevCount + 1);
-  }
+
   return (
     <>
-      <Header cartCount={cartCount} />
-      <Dishes addToCart={addToCart} />
+      <Header cartCount />
+      <Dishes addToCart />
       <Footer />
     </>
   );

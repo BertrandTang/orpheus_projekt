@@ -2,9 +2,12 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from "../assets/img/logo.webp";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import '../assets/styles/header.scss'
 
-export default function Header({ cartCount }) {
+export default function Header() {
+  const { cartCount } = useContext(CartContext);
   return (
     <header>
       <Navbar expand="lg" className="bg-body-tertiary">
