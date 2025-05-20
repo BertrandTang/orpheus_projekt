@@ -1,9 +1,15 @@
 import Card from 'react-bootstrap/Card';
-import Badge from 'react-bootstrap/Badge';
-import Stack from 'react-bootstrap/Stack';
+import Badge from 'react-bootstrap/Badge'; ``
+import Button from 'react-bootstrap/Button';
+
 import "../assets/styles/dish.scss"
 
 export default function Dish({ title, price, img, isNew }) {
+    const handleClick = (title) => {
+        alert(
+            `Le plat ${title} est maintenant dans votre panier`
+        )
+    };
     return (
         <Card>
             {isNew ? (<Badge bg="primary">FRESHLY NEW</Badge>) : null}
@@ -13,6 +19,7 @@ export default function Dish({ title, price, img, isNew }) {
                 <Card.Text>
                     {price}€
                 </Card.Text>
+                <Button variant="primary" onClick={() => handleClick(title)}>Ajouter à la lunchbox</Button>
             </Card.Body>
         </Card>
     )
