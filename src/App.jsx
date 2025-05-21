@@ -1,12 +1,12 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Dish from "./components/Dish";
-import { CartContext } from "./context/CartContext";
+import useCart from "./hooks/useCart";
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { useState, useEffect, useRef, useContext } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./assets/styles/main.scss"
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -48,7 +48,7 @@ function Dishes() {
 }
 
 function App() {
-  const { cartCount } = useContext(CartContext);
+    const { cartCount } = useCart();
   const prevCountRef = useRef(cartCount);
 
   useEffect(() => {
