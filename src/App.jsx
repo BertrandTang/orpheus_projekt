@@ -1,11 +1,12 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Dish from "./components/Dish";
+import { CartContext } from "./context/CartContext";
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { useState } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import "./assets/styles/main.scss"
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -47,11 +48,18 @@ function Dishes() {
 }
 
 function App() {
+  const { cartCount } = useContext(CartContext);
+  const prevCountRef = useRef(cartCount);
+
+  useEffect(() => {
+    prevCountRef.current = cartCount; // Stocke la valeur avant le re-render
+  }, [cartCount]);
 
   return (
     <>
       <Header />
       <Dishes />
+      <p className="clickCount">Le panier est passé de {prevCountRef.current} à  {cartCount} articles</p>
       <Footer />
     </>
   );
